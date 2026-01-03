@@ -1,0 +1,20 @@
+
+# spring
+application-local.yml
+*.log
+
+# maven
+target
+.flattened-pom.xml
+
+# nodejs
+node_modules
+*.lock
+
+
+# idea
+.idea
+
+
+# Mac
+.DS_Store
