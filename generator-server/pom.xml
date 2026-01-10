@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>generator-server</artifactId>
-    <name>generator-server</name>
 
     <dependencies>
 
