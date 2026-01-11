@@ -13,9 +13,6 @@ public class GenTemplate extends BaseEntity {
     @Desc("用户名")
     private String userCode;
 
-    @Desc("模板类型")
-    private String tempType;
-
     @Desc("模板名称")
     private String tempName;
 
