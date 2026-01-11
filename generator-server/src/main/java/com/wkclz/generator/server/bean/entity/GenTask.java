@@ -20,10 +20,10 @@ public class GenTask extends BaseEntity {
     private String taskName;
 
     @Desc("是否生成")
-    private Integer needCreate;
+    private Integer createSwitch;
 
     @Desc("是否删除(本地模式有效)")
-    private Integer needDelete;
+    private Integer deleteSwitch;
 
     @Desc("任务项目基本路径")
     private String projectBasePath;
