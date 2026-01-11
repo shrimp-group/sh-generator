@@ -4,7 +4,13 @@ import com.wkclz.generator.server.bean.entity.GenTemplate;
 import com.wkclz.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface GenTemplateMapper extends BaseMapper<GenTemplate> {
+
+    List<GenTemplate> getTemplateList(GenTemplate entity);
+    List<GenTemplate> getTemplateOpions();
+
 
 }
