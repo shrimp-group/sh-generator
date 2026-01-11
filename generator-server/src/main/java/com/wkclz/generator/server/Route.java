@@ -74,10 +74,12 @@ public interface Route {
     // 代码生成
 
 
+    @Desc("代码生成-模型数据")
+    String GEN_DATA = "/public/gen/data/{projectCode}";
     @Desc("代码生成-代码压缩文件")
-    String GEN_ZIP = "/gen/zip/{authCode}";
+    String GEN_ZIP = "/public/gen/zip/{projectCode}";
     @Desc("代码生成-代码生成规则")
-    String GEN_RULE = "/gen/rule/{authCode}";
+    String GEN_RULE = "/public/gen/rule/{projectCode}";
 
 
 

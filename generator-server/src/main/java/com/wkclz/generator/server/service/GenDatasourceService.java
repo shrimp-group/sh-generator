@@ -1,6 +1,7 @@
 package com.wkclz.generator.server.service;
 
 import com.wkclz.core.base.PageData;
+import com.wkclz.core.exception.ValidationException;
 import com.wkclz.generator.server.bean.entity.GenDatasource;
 import com.wkclz.generator.server.mapper.GenDatasourceMapper;
 import com.wkclz.mybatis.helper.PageQuery;
@@ -37,5 +38,21 @@ public class GenDatasourceService extends BaseService<GenDatasource, GenDatasour
         }
         return updateByIdSelective(exist);
     }
+
+
+
+
+    public GenDatasource getDatasourceByCode(String dbCode) {
+        Assert.notNull(dbCode, "dbCode 不能为空");
+        GenDatasource datasource = new GenDatasource();
+        datasource.setDbCode(dbCode);
+        datasource = mapper.selectOneByEntity(datasource);
+        if (datasource == null) {
+            throw ValidationException.of("数据源编码错误，数据源不存在");
+        }
+        return datasource;
+    }
+
+
 
 }

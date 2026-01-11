@@ -1,6 +1,5 @@
 package com.wkclz.generator.server.rest;
 
-import com.wkclz.core.base.PageData;
 import com.wkclz.core.base.R;
 import com.wkclz.core.enums.ResultCode;
 import com.wkclz.generator.server.Route;
@@ -10,6 +9,8 @@ import com.wkclz.iam.sdk.helper.SessionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(Route.PREFIX)
@@ -21,8 +22,9 @@ public class GenTaskRest {
 
     @GetMapping(Route.TASK_LIST)
     public R taskList(GenTask entity) {
-        PageData<GenTask> page = genTaskService.getGenTaskPage(entity);
-        return R.ok(page);
+        Assert.notNull(entity.getProjectCode(), "projectCode 不能为空!");
+        List<GenTask> list = genTaskService.getGenTaskList(entity.getProjectCode());
+        return R.ok(list);
     }
 
     @PostMapping(Route.TASK_SAVE)
