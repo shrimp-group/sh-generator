@@ -37,14 +37,14 @@ public class GenDatasourceRest {
     @PostMapping(Route.DATASOURCE_CREATE)
     public R datasourceCreate(@RequestBody GenDatasource entity) {
         paramCheck(entity);
-        int insert = genDatasourceService.insert(entity);
+        int insert = genDatasourceService.create(entity);
         return R.ok(insert);
     }
 
     @PostMapping(Route.DATASOURCE_UPDATE)
     public R datasourceUpdate(@RequestBody GenDatasource entity) {
         paramCheck(entity);
-        int i = genDatasourceService.updateById(entity);
+        int i = genDatasourceService.update(entity);
         return R.ok(i);
     }
 
@@ -62,14 +62,15 @@ public class GenDatasourceRest {
     }
 
 
+
     private void paramCheck(GenDatasource entity) {
         if (entity.getId() == null) {
             entity.setUserCode(SessionHelper.getUserCode());
             Assert.notNull(entity.getDbPassword(), "dbPassword 不能为空");
         } else {
             Assert.notNull(entity.getDbCode(), "dbCode 不能为空");
-            Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
-            Assert.notNull(entity.getId(), ResultCode.UPDATE_NO_VERSION.getMessage());
+            Assert.notNull(entity.getId(), "id 不能为空");
+            Assert.notNull(entity.getVersion(), "version 不能为空");
         }
         Assert.notNull(entity.getDbType(), "dbType 不能为空");
         Assert.notNull(entity.getDbHost(), "dbHost 不能为空");
@@ -77,6 +78,4 @@ public class GenDatasourceRest {
         Assert.notNull(entity.getDbSchema(), "dbSchema 不能为空");
         Assert.notNull(entity.getDbUsername(), "dbUsername 不能为空");
     }
-
-
 }
