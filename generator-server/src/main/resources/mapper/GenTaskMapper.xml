@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkclz.generator.server.mapper.GenTaskMapper">
+
+    <select id="getTaskList" parameterType="com.wkclz.generator.server.bean.entity.GenTask" resultType="com.wkclz.generator.server.bean.entity.GenTask">
+        SELECT
+            id,
+            user_code,
+            project_code,
+            temp_code,
+            temp_key,
+            task_name,
+            create_switch,
+            delete_switch,
+            project_base_path,
+            package_path,
+            task_desc,
+            sort,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            remark,
+            version
+        FROM
+            gen_task
+        WHERE
+            deleted = 0
+            <if test="userCode != null">AND user_code = #{userCode}</if>
+            <if test="projectCode != null">AND project_code = #{projectCode}</if>
+            <if test="tempCode != null">AND temp_code = #{tempCode}</if>
+            <if test="tempKey != null">AND temp_key = #{tempKey}</if>
+            <if test="taskName != null">AND task_name LIKE CONCAT('%', #{taskName}, '%')</if>
+        ORDER BY
+            sort ASC,
+            id ASC
+    </select>
+
+
+    <select id="getTask4CodeGen" parameterType="java.lang.String" resultType="com.wkclz.generator.server.bean.entity.GenTask">
+        SELECT
+            project_code,
+            temp_code,
+            temp_key,
+            task_name,
+            create_switch,
+            delete_switch,
+            project_base_path,
+            package_path
+        FROM
+            gen_task
+        WHERE
+            deleted = 0
+            AND project_code = #{projectCode}
+        ORDER BY
+            sort ASC,
+            id ASC
+
+    </select>
+
+
+</mapper>

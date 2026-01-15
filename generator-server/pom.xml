@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>generator-server</artifactId>
-    <name>generator-server</name>
 
     <dependencies>
 
@@ -23,6 +22,10 @@
         <dependency>
             <groupId>com.wkclz.framework</groupId>
             <artifactId>sh-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wkclz.framework</groupId>
+            <artifactId>sh-dynamicdb</artifactId>
         </dependency>
 
         <dependency>

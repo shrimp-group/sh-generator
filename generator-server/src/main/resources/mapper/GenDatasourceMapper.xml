@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkclz.generator.server.mapper.GenDatasourceMapper">
+
+    <select id="getDatasourceList" parameterType="com.wkclz.generator.server.bean.entity.GenDatasource" resultType="com.wkclz.generator.server.bean.entity.GenDatasource">
+        SELECT
+            id,
+            user_code,
+            db_type,
+            db_code,
+            db_host,
+            db_port,
+            db_schema,
+            db_username,
+            db_password,
+            sort,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            remark,
+            version
+        FROM
+            gen_datasource
+        WHERE
+            deleted = 0
+            <if test="dbCode != null">AND db_code LIKE CONCAT('%', #{dbCode}, '%')</if>
+            <if test="dbType != null">AND db_type = #{dbType}</if>
+            <if test="dbHost != null">AND db_host LIKE CONCAT('%', #{dbHost}, '%')</if>
+            <if test="dbSchema != null">AND db_schema LIKE CONCAT('%', #{dbSchema}, '%')</if>
+            <if test="userCode != null">AND user_code = #{userCode}</if>
+        ORDER BY
+            sort ASC,
+            id DESC
+    </select>
+
+
+    <select id="getDatasourceOptions" resultType="com.wkclz.generator.server.bean.entity.GenDatasource">
+        SELECT
+            id,
+            db_code,
+            db_type,
+            db_host,
+            db_port,
+            db_schema,
+            db_username
+        FROM
+            gen_datasource
+        WHERE
+            deleted = 0
+            <if test="dbType != null">AND db_type = #{dbType}</if>
+            <if test="userCode != null">AND user_code = #{userCode}</if>
+        ORDER BY
+            sort ASC,
+            id DESC
+    </select>
+
+
+</mapper>

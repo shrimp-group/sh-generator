@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkclz.generator.server.mapper.GenTemplateMapper">
+
+
+    <select id="getTemplateList" parameterType="com.wkclz.generator.server.bean.entity.GenTemplate" resultType="com.wkclz.generator.server.bean.entity.GenTemplate">
+        SELECT
+            id,
+            temp_code,
+            user_code,
+            temp_name,
+            temp_subfix,
+            temp_desc,
+            sort,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            remark,
+            version
+        FROM
+            gen_template
+        WHERE
+            deleted = 0
+            <if test="tempCode != null">AND temp_code LIKE CONCAT('%', #{tempCode}, '%')</if>
+            <if test="tempName != null">AND temp_name LIKE CONCAT('%', #{tempName}, '%')</if>
+            <if test="userCode != null">AND user_code = #{userCode}</if>
+        ORDER BY
+            sort ASC,
+            id DESC
+    </select>
+
+
+
+    <select id="getTemplateOpions" resultType="com.wkclz.generator.server.bean.entity.GenTemplate">
+        SELECT
+            temp_code,
+            temp_name,
+            temp_subfix,
+            temp_desc
+        FROM
+            gen_template
+        WHERE
+            deleted = 0
+        ORDER BY
+            sort ASC,
+            id DESC
+    </select>
+
+
+
+    <select id="getTemplates4CodeGen" parameterType="java.util.List" resultType="com.wkclz.generator.server.bean.entity.GenTemplate">
+        SELECT
+            temp_code,
+            temp_subfix,
+            temp_content
+        FROM
+            gen_template
+        WHERE
+            deleted = 0
+            AND temp_code IN ( <foreach collection="tempCodes" item="item" separator=",">#{item}</foreach> )
+        ORDER BY
+            sort ASC,
+            id DESC
+    </select>
+
+
+
+</mapper>
