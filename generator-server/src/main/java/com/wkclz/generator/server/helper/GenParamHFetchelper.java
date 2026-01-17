@@ -70,7 +70,7 @@ public class GenParamHFetchelper {
                     genTable.setDatetimeImport("import java.time.LocalDateTime;");
                     continue;
                 }
-                if ("DATE".equals(c.getJavaType())) {
+                if ("BigDecimal".equals(c.getJavaType())) {
                     genTable.setBigdecimalImport("import java.math.BigDecimal;");
                 }
             }
