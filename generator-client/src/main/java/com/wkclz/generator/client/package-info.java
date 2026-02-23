@@ -1,1 +1,0 @@
-package com.wkclz.generator.client;
