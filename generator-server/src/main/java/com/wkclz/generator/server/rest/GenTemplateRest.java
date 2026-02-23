@@ -71,6 +71,7 @@ public class GenTemplateRest {
             Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
             Assert.notNull(entity.getId(), ResultCode.UPDATE_NO_VERSION.getMessage());
         }
+        Assert.notNull(entity.getTempKey(), "tempKey 不能为空");
         Assert.notNull(entity.getTempName(), "tempName 不能为空");
         Assert.notNull(entity.getTempSubfix(), "tempSubfix 不能为空");
         Assert.notNull(entity.getTempContent(), "tempContent 不能为空");

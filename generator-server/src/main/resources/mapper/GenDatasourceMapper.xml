@@ -12,7 +12,6 @@
             db_port,
             db_schema,
             db_username,
-            db_password,
             sort,
             create_time,
             create_by,

@@ -8,7 +8,6 @@
             user_code,
             project_code,
             temp_code,
-            temp_key,
             task_name,
             create_switch,
             delete_switch,
@@ -29,7 +28,6 @@
             <if test="userCode != null">AND user_code = #{userCode}</if>
             <if test="projectCode != null">AND project_code = #{projectCode}</if>
             <if test="tempCode != null">AND temp_code = #{tempCode}</if>
-            <if test="tempKey != null">AND temp_key = #{tempKey}</if>
             <if test="taskName != null">AND task_name LIKE CONCAT('%', #{taskName}, '%')</if>
         ORDER BY
             sort ASC,
@@ -37,25 +35,26 @@
     </select>
 
 
-    <select id="getTask4CodeGen" parameterType="java.lang.String" resultType="com.wkclz.generator.server.bean.entity.GenTask">
+    <select id="getTask4CodeGen" parameterType="java.lang.String" resultType="com.wkclz.generator.server.bean.dto.GenTaskDto">
         SELECT
-            project_code,
-            temp_code,
-            temp_key,
-            task_name,
-            create_switch,
-            delete_switch,
-            project_base_path,
-            package_path
+            gt.project_code,
+            gt.temp_code,
+            gtp.temp_key,
+            gt.task_name,
+            gt.create_switch,
+            gt.delete_switch,
+            gt.project_base_path,
+            gt.package_path
         FROM
-            gen_task
+            gen_task gt
+            INNER JOIN gen_template gtp ON gtp.temp_code = gt.temp_code
         WHERE
-            deleted = 0
-            AND project_code = #{projectCode}
+            gt.deleted = 0
+            AND gtp.deleted = 0
+            AND gt.project_code = #{projectCode}
         ORDER BY
-            sort ASC,
-            id ASC
-
+            gt.sort ASC,
+            gt.id ASC
     </select>
 
 

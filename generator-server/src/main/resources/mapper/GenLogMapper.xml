@@ -25,8 +25,9 @@
             <if test="userCode != null">AND user_code = #{userCode}</if>
             <if test="projectCode != null">AND project_code = #{projectCode}</if>
             <if test="authCode != null">AND auth_code = #{authCode}</if>
+            <if test="timeFrom != null">AND create_time >= #{timeFrom}</if>
+            <if test="timeTo != null">AND create_time &lt;= #{timeTo}</if>
         ORDER BY
-            sort ASC,
             id DESC
     </select>
 

@@ -4,6 +4,7 @@ package com.wkclz.generator.server.service;
 import com.wkclz.core.exception.SystemException;
 import com.wkclz.core.exception.ValidationException;
 import com.wkclz.dynamicdb.DynamicDataSourceHolder;
+import com.wkclz.generator.server.bean.dto.GenTaskDto;
 import com.wkclz.generator.server.bean.entity.*;
 import com.wkclz.generator.server.bean.gen.GenParam;
 import com.wkclz.generator.server.bean.gen.GenPkg;
@@ -60,11 +61,11 @@ public class GenService {
         GenDatasource datasource = genDatasourceService.getDatasourceByCode(project.getDbCode());
         List<TableInfo> tables = getTables(project, datasource);
         List<ColumnInfo> columns = getColumns(project, datasource, tables);
-        List<GenTask> genTaskList = genTaskService.getTask4CodeGen(project.getProjectCode());
+        List<GenTaskDto> genTaskList = genTaskService.getTask4CodeGen(project.getProjectCode());
         return GenParamHFetchelper.fetchGenParam(tables, columns, genTaskList);
     }
 
-    public List<GenTask> getGenRule(String projectCode) {
+    public List<GenTaskDto> getGenRule(String projectCode) {
         return genTaskService.getTask4CodeGen(projectCode);
     }
 

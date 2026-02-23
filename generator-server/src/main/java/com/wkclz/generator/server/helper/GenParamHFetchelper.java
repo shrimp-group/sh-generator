@@ -1,6 +1,7 @@
 package com.wkclz.generator.server.helper;
 
 import com.wkclz.core.base.DbColumnEntity;
+import com.wkclz.generator.server.bean.dto.GenTaskDto;
 import com.wkclz.generator.server.bean.entity.GenTask;
 import com.wkclz.generator.server.bean.gen.GenColumn;
 import com.wkclz.generator.server.bean.gen.GenParam;
@@ -24,7 +25,7 @@ public class GenParamHFetchelper {
     private final static List<String> UPDATE_IGNORE_FIELDS = List.of("id", "createBy", "createTime", "updateTime", "version");
 
 
-    public static List<GenParam> fetchGenParam(List<TableInfo> tables, List<ColumnInfo> columns, List<GenTask> tasks) {
+    public static List<GenParam> fetchGenParam(List<TableInfo> tables, List<ColumnInfo> columns, List<GenTaskDto> tasks) {
         List<GenParam> params = new ArrayList<>();
         if (CollectionUtils.isEmpty(tables)) {
             return params;
@@ -70,7 +71,7 @@ public class GenParamHFetchelper {
                     genTable.setDatetimeImport("import java.time.LocalDateTime;");
                     continue;
                 }
-                if ("DATE".equals(c.getJavaType())) {
+                if ("BigDecimal".equals(c.getJavaType())) {
                     genTable.setBigdecimalImport("import java.math.BigDecimal;");
                 }
             }
@@ -80,9 +81,9 @@ public class GenParamHFetchelper {
 
 
 
-    private static Map<String, GenPkg> getPkgMap(List<GenTask> tasks) {
+    private static Map<String, GenPkg> getPkgMap(List<GenTaskDto> tasks) {
         Map<String, GenPkg> pkgs = new HashMap<>();
-        for (GenTask task : tasks) {
+        for (GenTaskDto task : tasks) {
             GenPkg pkg = new GenPkg();
             pkg.setTempCode(task.getTempCode());
             pkg.setPkgPath(task.getPackagePath());

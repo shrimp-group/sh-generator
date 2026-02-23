@@ -31,6 +31,7 @@ public class GenDatasourceRest {
     public R datasourceDetail(GenDatasource entity) {
         Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
         GenDatasource detail = genDatasourceService.selectById(entity.getId());
+        detail.setDbPassword(null);
         return R.ok(detail);
     }
 

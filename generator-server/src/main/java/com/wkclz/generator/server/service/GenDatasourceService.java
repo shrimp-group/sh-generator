@@ -33,7 +33,7 @@ public class GenDatasourceService extends BaseService<GenDatasource, GenDatasour
         Assert.notNull(exist, "数据源不存在");
 
         BeanUtils.copyProperties(entity, exist, "dbPassword");
-        if (StringUtils.isEmpty(entity.getDbPassword())) {
+        if (!StringUtils.isEmpty(entity.getDbPassword())) {
             exist.setDbPassword(exist.getDbPassword());
         }
         return updateByIdSelective(exist);

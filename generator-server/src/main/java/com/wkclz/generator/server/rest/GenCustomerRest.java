@@ -2,7 +2,7 @@ package com.wkclz.generator.server.rest;
 
 import com.wkclz.core.base.R;
 import com.wkclz.generator.server.Route;
-import com.wkclz.generator.server.bean.entity.GenTask;
+import com.wkclz.generator.server.bean.dto.GenTaskDto;
 import com.wkclz.generator.server.bean.gen.GenParam;
 import com.wkclz.generator.server.service.GenService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -36,7 +36,7 @@ public class GenCustomerRest {
 
     @GetMapping(Route.GEN_RULE)
     public R genRule(@PathVariable("projectCode") String projectCode) {
-        List<GenTask> genRule = genService.getGenRule(projectCode);
+        List<GenTaskDto> genRule = genService.getGenRule(projectCode);
         return R.ok(genRule);
     }
 
