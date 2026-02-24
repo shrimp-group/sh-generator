@@ -5,6 +5,7 @@ import com.wkclz.generator.server.bean.entity.GenTask;
 import com.wkclz.generator.server.mapper.GenTaskMapper;
 import com.wkclz.mybatis.service.BaseService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
@@ -26,6 +27,7 @@ public class GenTaskService extends BaseService<GenTask, GenTaskMapper> {
         return taskList;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public Integer taskSave(List<GenTask> tasks) {
         // 当前存在的所有任务
         GenTask param = new GenTask();
