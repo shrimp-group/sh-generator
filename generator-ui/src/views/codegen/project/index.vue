@@ -35,10 +35,11 @@
         <template #default="{row}">{{ parseTime(row.updateTime) }}</template>
       </el-table-column>
       <el-table-column label="更新人" prop="updateBy" width="120" v-if="columns.updateBy.visible"/>
-      <el-table-column fixed="right" width="160">
+      <el-table-column fixed="right" width="220">
         <template #header><table-setting v-model:columns="columns"/></template>
         <template #default="{row}">
           <el-button link type="primary" icon="Edit" @click="handleTask(row)">任务</el-button>
+          <el-button link type="primary" icon="CopyDocument" @click="handleCopy(row)">复制</el-button>
           <el-button link type="primary" icon="Edit" @click="handleUpdate(row)" title="编辑"/>
           <el-button link type="danger" icon="Delete" @click="handleDelete(row)" title="删除"/>
         </template>
@@ -58,7 +59,7 @@
 </template>
 
 <script setup name="GenProject">
-import { projectPage, projectRemove} from "@/api/project";
+import { projectPage, projectRemove, projectCopy} from "@/api/project";
 import Tasks from "./components/tasks"
 import Edit from "./components/edit"
 
@@ -128,14 +129,24 @@ function handleUpdate(row) {
   proxy.$refs["editRef"].init(row);
 }
 
+
+function handleCopy(row) {
+  proxy.$modal.confirm('是否确认复制 :"' + row.projectName + '"？').then(() => {
+    projectCopy({id: row.id}).then(res => {
+      getList();
+      proxy.$modal.msgSuccess("复制成功");
+    })
+  });
+}
+
 /** 删除按钮操作 */
 function handleDelete(row) {
-  proxy.$modal.confirm('是否确认删除 :"' + row.id + '"？').then(() => {
+  proxy.$modal.confirm('是否确认删除 :"' + row.projectName + '"？').then(() => {
     projectRemove({id: row.id}).then(res => {
       getList();
       proxy.$modal.msgSuccess("删除成功");
     })
-  }).catch(() => {});
+  });
 }
 
 init();

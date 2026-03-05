@@ -109,13 +109,16 @@ function getList() {
   loading.value = true;
   initTemplateOptions();
   taskList(queryParams.value).then(res => {
-    const data = res.data || [{
-      taskName: "demo",
-      tempCode: queryParams.value.projectCode,
-      createSwitch: 1,
-      deleteSwitch: 1,
-      sort: 1
-    }];
+    let data = res.data;
+    if (data == null || data.length === 0) {
+      data = [{
+        taskName: "demo",
+        tempCode: queryParams.value.projectCode,
+        createSwitch: 1,
+        deleteSwitch: 1,
+        sort: 1
+      }];
+    }
     dataList.value = data;
     open.value = true;
     title.value = "修改项目任务: " + queryParams.value.projectCode;

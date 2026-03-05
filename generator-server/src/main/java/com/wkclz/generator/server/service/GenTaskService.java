@@ -48,31 +48,31 @@ public class GenTaskService extends BaseService<GenTask, GenTaskMapper> {
             for (GenTask savedTask : savedTasks) {
                 if (task.getTempCode().equals(savedTask.getTempCode())) {
                     boolean isUpdate = false;
-                    if (Objects.equals(task.getTaskName(), savedTask.getTaskName())) {
+                    if (!Objects.equals(task.getTaskName(), savedTask.getTaskName())) {
                         isUpdate = true;
                         savedTask.setTaskName(task.getTaskName());
                     }
-                    if (Objects.equals(task.getProjectBasePath(), savedTask.getProjectBasePath())) {
+                    if (!Objects.equals(task.getProjectBasePath(), savedTask.getProjectBasePath())) {
                         isUpdate = true;
                         savedTask.setProjectBasePath(task.getProjectBasePath());
                     }
-                    if (Objects.equals(task.getPackagePath(), savedTask.getPackagePath())) {
+                    if (!Objects.equals(task.getPackagePath(), savedTask.getPackagePath())) {
                         isUpdate = true;
                         savedTask.setPackagePath(task.getPackagePath());
                     }
-                    if (Objects.equals(task.getTaskDesc(), savedTask.getTaskDesc())) {
+                    if (!Objects.equals(task.getTaskDesc(), savedTask.getTaskDesc())) {
                         isUpdate = true;
                         savedTask.setTaskDesc(task.getTaskDesc());
                     }
-                    if (Objects.equals(task.getCreateSwitch(), savedTask.getCreateSwitch())) {
+                    if (!Objects.equals(task.getCreateSwitch(), savedTask.getCreateSwitch())) {
                         isUpdate = true;
                         savedTask.setCreateSwitch(task.getCreateSwitch());
                     }
-                    if (Objects.equals(task.getDeleteSwitch(), savedTask.getDeleteSwitch())) {
+                    if (!Objects.equals(task.getDeleteSwitch(), savedTask.getDeleteSwitch())) {
                         isUpdate = true;
                         savedTask.setDeleteSwitch(task.getDeleteSwitch());
                     }
-                    if (Objects.equals(task.getRemark(), savedTask.getRemark())) {
+                    if (!Objects.equals(task.getRemark(), savedTask.getRemark())) {
                         isUpdate = true;
                         savedTask.setRemark(task.getRemark());
                     }

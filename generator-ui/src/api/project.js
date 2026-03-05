@@ -25,4 +25,9 @@ export const projectUpdate = (params) => {
   return request({url: '/generator/project/update', method: 'post', data: params})
 }
 
+// 项目-复制
+export const projectCopy = (params) => {
+  return request({url: '/generator/project/copy', method: 'post', data: params})
+}
+
 

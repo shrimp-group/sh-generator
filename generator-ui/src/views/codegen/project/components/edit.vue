@@ -5,7 +5,7 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="项目编码" prop="projectCode">
-            <el-input v-model="form.projectCode" :disabled="!!form.id" placeholder="请输入项目编码, 留空自动生成" />
+            <el-input v-model="form.projectCode" placeholder="请输入项目编码, 留空自动生成" />
           </el-form-item>
           <el-form-item label="项目名称" prop="projectName">
             <el-input v-model="form.projectName" placeholder="请输入项目名称" />
