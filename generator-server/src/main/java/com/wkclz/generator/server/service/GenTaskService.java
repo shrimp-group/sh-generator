@@ -20,11 +20,7 @@ public class GenTaskService extends BaseService<GenTask, GenTaskMapper> {
         Assert.notNull(projectCode, "projectCode 不能为空!");
         GenTask entity = new GenTask();
         entity.setProjectCode(projectCode);
-        List<GenTask> taskList = mapper.getTaskList(entity);
-        if (CollectionUtils.isEmpty(taskList)) {
-            throw new RuntimeException("项目编码错误，项目不存在!");
-        }
-        return taskList;
+        return mapper.getTaskList(entity);
     }
 
     @Transactional(rollbackFor = Exception.class)
