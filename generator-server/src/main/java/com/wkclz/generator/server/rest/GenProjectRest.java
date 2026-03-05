@@ -35,15 +35,15 @@ public class GenProjectRest {
     @PostMapping(Route.PROJECT_CREATE)
     public R projectCreate(@RequestBody GenProject entity) {
         paramCheck(entity);
-        int insert = genProjectService.insert(entity);
+        GenProject insert = genProjectService.create(entity);
         return R.ok(insert);
     }
 
     @PostMapping(Route.PROJECT_UPDATE)
     public R projectUpdate(@RequestBody GenProject entity) {
         paramCheck(entity);
-        int i = genProjectService.updateById(entity);
-        return R.ok(i);
+        GenProject project = genProjectService.update(entity);
+        return R.ok(project);
     }
 
     @PostMapping(Route.PROJECT_REMOVE)
@@ -51,6 +51,13 @@ public class GenProjectRest {
         Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
         int i = genProjectService.deleteById(entity);
         return R.ok(i);
+    }
+
+    @PostMapping(Route.PROJECT_COPY)
+    public R projectCopy(@RequestBody GenProject entity) {
+        Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
+        GenProject project = genProjectService.projectCopy(entity.getId());
+        return R.ok(project);
     }
 
 

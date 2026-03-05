@@ -49,6 +49,8 @@ public interface Route {
     String PROJECT_UPDATE = "/project/update";
     @Desc("项目-删除")
     String PROJECT_REMOVE = "/project/remove";
+    @Desc("项目-复制")
+    String PROJECT_COPY = "/project/copy";
 
     // 任务
     @Desc("任务-分页")
