@@ -72,6 +72,10 @@ public class GenTaskService extends BaseService<GenTask, GenTaskMapper> {
                         isUpdate = true;
                         savedTask.setDeleteSwitch(task.getDeleteSwitch());
                     }
+                    if (!Objects.equals(task.getSort(), savedTask.getSort())) {
+                        isUpdate = true;
+                        savedTask.setSort(task.getSort());
+                    }
                     if (!Objects.equals(task.getRemark(), savedTask.getRemark())) {
                         isUpdate = true;
                         savedTask.setRemark(task.getRemark());
