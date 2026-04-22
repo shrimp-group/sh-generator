@@ -1,6 +1,6 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.Desc;
+import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,37 +21,37 @@ public class GenLog extends BaseEntity {
     /**
      * 用户名
      */
-    @Desc("用户名")
+    @FieldDesc(value = "用户名")
     private String userCode;
 
     /**
      * 项目编码
      */
-    @Desc("项目编码")
+    @FieldDesc(value = "项目编码")
     private String projectCode;
 
     /**
      * 授权码
      */
-    @Desc("授权码")
+    @FieldDesc(value = "授权码")
     private String authCode;
 
     /**
      * 生成路径
      */
-    @Desc("生成路径")
+    @FieldDesc(value = "生成路径")
     private String genPath;
 
     /**
      * 开始时间
      */
-    @Desc("开始时间")
+    @FieldDesc(value = "开始时间")
     private LocalDateTime startTime;
 
     /**
      * 结束时间
      */
-    @Desc("结束时间")
+    @FieldDesc(value = "结束时间")
     private LocalDateTime endTime;
 
 

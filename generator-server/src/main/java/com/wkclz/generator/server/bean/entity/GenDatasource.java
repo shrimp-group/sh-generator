@@ -1,6 +1,6 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.Desc;
+import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,49 +21,49 @@ public class GenDatasource extends BaseEntity {
     /**
      * 用户名
      */
-    @Desc("用户名")
+    @FieldDesc(value = "用户名", notNull = true)
     private String userCode;
 
     /**
      * 数据源编码
      */
-    @Desc("数据源编码")
+    @FieldDesc(value = "数据源编码", notNull = true)
     private String dbCode;
 
     /**
      * 数据库类型
      */
-    @Desc("数据库类型")
+    @FieldDesc(value = "数据库类型", notNull = true)
     private String dbType;
 
     /**
      * 主机名
      */
-    @Desc("主机名")
+    @FieldDesc(value = "主机名", notNull = true)
     private String dbHost;
 
     /**
      * 端口
      */
-    @Desc("端口")
+    @FieldDesc(value = "端口", notNull = true)
     private Integer dbPort;
 
     /**
      * 数据库名称
      */
-    @Desc("数据库名称")
+    @FieldDesc(value = "数据库名称", notNull = true)
     private String dbSchema;
 
     /**
      * 数据库用户名
      */
-    @Desc("数据库用户名")
+    @FieldDesc(value = "数据库用户名", notNull = true)
     private String dbUsername;
 
     /**
      * 数据库密码
      */
-    @Desc("数据库密码")
+    @FieldDesc(value = "数据库密码", notNull = true)
     private String dbPassword;
 
 

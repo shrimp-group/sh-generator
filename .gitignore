@@ -1,6 +1,5 @@
 
 # spring
-application-local.yml
 *.log
 
 # maven
@@ -21,3 +20,9 @@ tmp
 
 # Mac
 .DS_Store
+
+
+# project
+demo
+*.vue
+application-local.yml

@@ -1,5 +1,6 @@
 package com.wkclz.generator.server.service;
 
+import com.wkclz.core.base.DbColumnEntity;
 import com.wkclz.generator.server.bean.dto.GenTaskDto;
 import com.wkclz.generator.server.bean.entity.GenTask;
 import com.wkclz.generator.server.mapper.GenTaskMapper;
@@ -97,9 +98,8 @@ public class GenTaskService extends BaseService<GenTask, GenTaskMapper> {
             }
         }
         if (!CollectionUtils.isEmpty(deletes)) {
-            for (GenTask delete : deletes) {
-                mapper.deleteById(delete);
-            }
+            List<Long> list = deletes.stream().map(DbColumnEntity::getId).toList();
+            mapper.deleteByIds(list);
         }
         return tasks.size();
     }
