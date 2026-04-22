@@ -31,6 +31,8 @@ public class GenColumn implements Serializable {
     private String tsType;
     // 输入类型
     private String inputType;
+    // 不为空
+    private Boolean notNull;
 
 
 }

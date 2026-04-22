@@ -124,6 +124,7 @@ public class GenParamHFetchelper {
             column.setJavaType(dataTypeEnum.getJavaType());
             column.setTsType(dataTypeEnum.getTsType());
             column.setInputType(dataTypeEnum.getInputType());
+            column.setNotNull(t.getNotNull());
             return column;
         }).collect(Collectors.groupingBy(GenColumn::getTableName));
     }
