@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: generator_client
+title: 代码生成Maven插件客户端
+scope:
+    - generator-client/
+source_files: []
+depends_on: []
+related_to:
+    - path: generator_server/server

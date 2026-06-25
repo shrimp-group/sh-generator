@@ -1,0 +1,10 @@
+schema_version: 1
+module_path: generator_server/server
+title: 代码生成服务端模块
+scope:
+    - generator-server/
+source_files: []
+depends_on: []
+related_to:
+    - path: generator_client
+    - path: generator_ui

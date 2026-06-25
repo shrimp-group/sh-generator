@@ -1,0 +1,8 @@
+schema_version: 1
+module_path: generator_server/starter
+title: 代码生成服务启动模块
+scope:
+    - generator-server-starter/
+source_files: []
+depends_on: []
+related_to: []
