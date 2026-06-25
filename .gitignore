@@ -26,3 +26,59 @@ tmp
 demo
 *.vue
 application-local.yml
+
+# harness additions
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+*.nar
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE - IntelliJ IDEA
+*.iml
+*.iws
+*.ipr
+
+# IDE - Eclipse
+.settings/
+.project
+.classpath
+.factorypath
+
+# IDE - VS Code
+.vscode/
+
+# IDE - NetBeans
+nbproject/
+nbbuild/
+nbdist/
+
+# Build output
+dist/
+build/
+out/
+
+# OS files
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies and coverage
+vendor/
+coverage/
+htmlcov/
+
+# Temp
+*.tmp
+*.swp
+
+.trae/specs
