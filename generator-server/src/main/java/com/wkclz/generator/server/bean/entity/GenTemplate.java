@@ -1,7 +1,7 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,43 +21,43 @@ public class GenTemplate extends BaseEntity {
     /**
      * 用户名
      */
-    @FieldDesc(value = "用户名", notNull = true)
+    @Schema(description = "用户名")
     private String userCode;
 
     /**
      * 模板编码
      */
-    @FieldDesc(value = "模板编码", notNull = true)
+    @Schema(description = "模板编码")
     private String tempCode;
 
     /**
      * 模板Key
      */
-    @FieldDesc(value = "模板Key", notNull = true)
+    @Schema(description = "模板Key")
     private String tempKey;
 
     /**
      * 模板名称
      */
-    @FieldDesc(value = "模板名称")
+    @Schema(description = "模板名称")
     private String tempName;
 
     /**
      * 生成的文件后缀
      */
-    @FieldDesc(value = "生成的文件后缀")
+    @Schema(description = "生成的文件后缀")
     private String tempSubfix;
 
     /**
      * 模板描述
      */
-    @FieldDesc(value = "模板描述")
+    @Schema(description = "模板描述")
     private String tempDesc;
 
     /**
      * 模板内容
      */
-    @FieldDesc(value = "模板内容")
+    @Schema(description = "模板内容")
     private String tempContent;
 
 

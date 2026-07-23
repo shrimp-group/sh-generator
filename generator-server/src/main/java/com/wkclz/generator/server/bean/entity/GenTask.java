@@ -1,7 +1,7 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,55 +21,55 @@ public class GenTask extends BaseEntity {
     /**
      * 用户名
      */
-    @FieldDesc(value = "用户名", notNull = true)
+    @Schema(description = "用户名")
     private String userCode;
 
     /**
      * 项目编码
      */
-    @FieldDesc(value = "项目编码", notNull = true)
+    @Schema(description = "项目编码")
     private String projectCode;
 
     /**
      * 模板编码
      */
-    @FieldDesc(value = "模板编码", notNull = true)
+    @Schema(description = "模板编码")
     private String tempCode;
 
     /**
      * 任务名称
      */
-    @FieldDesc(value = "任务名称")
+    @Schema(description = "任务名称")
     private String taskName;
 
     /**
      * 是否生成
      */
-    @FieldDesc(value = "是否生成", notNull = true)
+    @Schema(description = "是否生成")
     private Integer createSwitch;
 
     /**
      * 是否删除(本地模式有效)
      */
-    @FieldDesc(value = "是否删除(本地模式有效)", notNull = true)
+    @Schema(description = "是否删除(本地模式有效)")
     private Integer deleteSwitch;
 
     /**
      * 任务项目基本路径
      */
-    @FieldDesc(value = "任务项目基本路径")
+    @Schema(description = "任务项目基本路径")
     private String projectBasePath;
 
     /**
      * 任务包路径
      */
-    @FieldDesc(value = "任务包路径")
+    @Schema(description = "任务包路径")
     private String packagePath;
 
     /**
      * 任务描述
      */
-    @FieldDesc(value = "任务描述")
+    @Schema(description = "任务描述")
     private String taskDesc;
 
 

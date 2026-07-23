@@ -1,7 +1,7 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,43 +21,43 @@ public class GenProject extends BaseEntity {
     /**
      * 项目编码(唯一标识)
      */
-    @FieldDesc(value = "项目编码(唯一标识)", notNull = true)
+    @Schema(description = "项目编码(唯一标识)")
     private String projectCode;
 
     /**
      * 用户名
      */
-    @FieldDesc(value = "用户名", notNull = true)
+    @Schema(description = "用户名")
     private String userCode;
 
     /**
      * 数据库编码
      */
-    @FieldDesc(value = "数据库编码", notNull = true)
+    @Schema(description = "数据库编码")
     private String dbCode;
 
     /**
      * 表前缀
      */
-    @FieldDesc(value = "表前缀")
+    @Schema(description = "表前缀")
     private String tablePrefix;
 
     /**
      * 模块名(英文)
      */
-    @FieldDesc(value = "模块名(英文)")
+    @Schema(description = "模块名(英文)")
     private String moduleName;
 
     /**
      * 项目名称
      */
-    @FieldDesc(value = "项目名称")
+    @Schema(description = "项目名称")
     private String projectName;
 
     /**
      * 项目说明
      */
-    @FieldDesc(value = "项目说明")
+    @Schema(description = "项目说明")
     private String projectDesc;
 
 

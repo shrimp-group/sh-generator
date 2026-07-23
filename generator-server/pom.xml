@@ -15,8 +15,7 @@
 
         <dependency>
             <groupId>com.wkclz.iam</groupId>
-            <artifactId>iam-sdk</artifactId>
-            <version>${iam.version}</version>
+            <artifactId>iam-session</artifactId>
         </dependency>
 
         <dependency>
@@ -35,6 +34,12 @@
         <dependency>
             <groupId>com.wkclz.framework</groupId>
             <artifactId>sh-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
         </dependency>
 
     </dependencies>

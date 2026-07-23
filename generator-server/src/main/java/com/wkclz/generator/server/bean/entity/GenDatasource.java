@@ -1,7 +1,7 @@
 package com.wkclz.generator.server.bean.entity;
 
-import com.wkclz.core.annotation.FieldDesc;
 import com.wkclz.core.base.BaseEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,49 +21,49 @@ public class GenDatasource extends BaseEntity {
     /**
      * 用户名
      */
-    @FieldDesc(value = "用户名", notNull = true)
+    @Schema(description = "用户名")
     private String userCode;
 
     /**
      * 数据源编码
      */
-    @FieldDesc(value = "数据源编码", notNull = true)
+    @Schema(description = "数据源编码")
     private String dbCode;
 
     /**
      * 数据库类型
      */
-    @FieldDesc(value = "数据库类型", notNull = true)
+    @Schema(description = "数据库类型")
     private String dbType;
 
     /**
      * 主机名
      */
-    @FieldDesc(value = "主机名", notNull = true)
+    @Schema(description = "主机名")
     private String dbHost;
 
     /**
      * 端口
      */
-    @FieldDesc(value = "端口", notNull = true)
+    @Schema(description = "端口")
     private Integer dbPort;
 
     /**
      * 数据库名称
      */
-    @FieldDesc(value = "数据库名称", notNull = true)
+    @Schema(description = "数据库名称")
     private String dbSchema;
 
     /**
      * 数据库用户名
      */
-    @FieldDesc(value = "数据库用户名", notNull = true)
+    @Schema(description = "数据库用户名")
     private String dbUsername;
 
     /**
      * 数据库密码
      */
-    @FieldDesc(value = "数据库密码", notNull = true)
+    @Schema(description = "数据库密码")
     private String dbPassword;
 
 
