@@ -83,7 +83,6 @@ public class GenProjectRest {
         } else {
             Assert.notNull(entity.getProjectCode(), "projectCode 不能为空");
             Assert.notNull(entity.getId(), ResultCode.PARAM_NO_ID.getMessage());
-            Assert.notNull(entity.getId(), ResultCode.UPDATE_NO_VERSION.getMessage());
         }
         Assert.notNull(entity.getDbCode(), "dbCode 不能为空");
         Assert.notNull(entity.getModuleName(), "moduleName 不能为空");

@@ -16,8 +16,8 @@
 
         <dependency>
             <groupId>com.wkclz.iam</groupId>
-            <artifactId>iam-sso</artifactId>
-            <version>${revision}</version>
+            <artifactId>iam-portal</artifactId>
+            <version>${iam.version}</version>
         </dependency>
         <dependency>
             <groupId>com.wkclz.generator</groupId>

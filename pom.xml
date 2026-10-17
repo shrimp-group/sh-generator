@@ -25,6 +25,7 @@
 
     <properties>
         <revision>5.0.1-SNAPSHOT</revision>
+        <iam.version>5.1.0-SNAPSHOT</iam.version>
 
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
