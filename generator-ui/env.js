@@ -1,11 +1,16 @@
 const name = "代码生成器";
+// 应用编码：与服务端应用注册一致（generator），域名访问时请求头 app-code 取域名首段，localhost 回退此值
 export const appCode = 'generator';
 
+// 地址推导规则：未配置且域名访问时，取当前域名首段替换（api → API 地址，portal → 门户登录地址）；localhost/IP 等非域名访问需显式配置或用 mock
 const configs = {
-  "local": {"cas": "http://cas.uat.husters.cn", "title": name + "【LOCAL】", "baseApi": "/api"},
-//  "local": {"cas": "http://cas.uat.husters.cn", "title": name + "【LOCAL】", "baseApi": "https://api.uat.husters.cn"},
-  "uat"  : {"cas": "http://cas.uat.husters.cn", "title": name + "【UAT】",   "baseApi": "https://api.uat.husters.cn"},
-  "prod" : {"cas": "http://cas.husters.cn",     "title": name,               "baseApi": "https://api.husters.cn"}
+  // portal 为本站镜像路径：vite 代理 → 线上门户整站（见 vite.config.js），登录页同源运行、token Cookie 落 localhost；
+  // baseApi='/api' 走同源代理；调试本地生成器后端可经 localStorage.mock-api 覆盖为 http://localhost:8080
+  "local": {"portal": "/portal",          "title": name + "【LOCAL】", "baseApi": "/api"},
+  "dev":   {"portal": "",                 "title": name + "【DEV】",   "baseApi": ""},
+  "sit":   {"portal": "",                 "title": name + "【SIT】",   "baseApi": ""},
+  "uat":   {"portal": "",                 "title": name + "【UAT】",   "baseApi": ""},
+  "prod":  {"portal": "",                 "title": name,               "baseApi": ""}
 };
 
 function getEnv() {
@@ -22,18 +27,36 @@ function getEnv() {
 // 获取环境
 export const env = getEnv();
 
-// 获取配置
+// 将当前域名首段替换为 target，非域名访问返回 ''（不推导，不携带端口）
+function deriveDomainUrl(target) {
+  const hostname = window.location.hostname;
+  if (hostname.indexOf('.') < 0) {return '';}
+  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(hostname)) {return '';}
+  return window.location.protocol + '//' + target + '.' + hostname.split('.').slice(1).join('.');
+}
+
+// 获取配置：mock > 显式配置 > 域名推导
 function getConfig(env) {
   let c = configs[env];
   if (c === undefined) {
     c = configs['local'];
   }
-  c.cas = localStorage.getItem('mock-cas') || c.cas;
+  c = {...c};
+  c.portal = localStorage.getItem('mock-portal') || c.portal;
   c.baseApi = localStorage.getItem('mock-api') || c.baseApi;
+  if (!c.portal) {
+    c.portal = deriveDomainUrl('portal');
+  }
+  if (!c.baseApi) {
+    c.baseApi = deriveDomainUrl('api');
+  }
   return c;
 }
 
 const config = getConfig(env);
-export const title = config['title'];
-export const cas = config['cas'];
-export const baseApi = config['baseApi'];
+
+// API 网关基址（与 runtimeEnv.baseApi 同源）
+export const baseApi = config.baseApi;
+
+// 运行时环境聚合（供 @sh/ui-core 运行时注入，对齐 sh-k8s-ui/env.js）
+export const runtimeEnv = {appCode, env, ...config};

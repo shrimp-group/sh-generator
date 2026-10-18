@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@sh/ui-core/utils/request';
 
 // 任务-分页
 export const taskList = (params) => {

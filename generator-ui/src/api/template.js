@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@sh/ui-core/utils/request';
 
 // 代码模板-详情
 export const templateDetail = (params) => {

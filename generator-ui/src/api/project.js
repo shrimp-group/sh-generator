@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@sh/ui-core/utils/request';
 
 // 项目-删除
 export const projectRemove = (params) => {

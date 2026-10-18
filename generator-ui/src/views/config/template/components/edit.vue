@@ -44,7 +44,7 @@
 
 <script setup name="GenTemplateEdit">
 import {templateDetail, templateCreate, templateUpdate} from "@/api/template";
-import MonacoEditor from "@/components/MonacoEditor";
+import MonacoEditor from '@sh/ui-core/components/MonacoEditor/index.vue.js';
 
 defineExpose({init});
 const emit = defineEmits(["change"]);

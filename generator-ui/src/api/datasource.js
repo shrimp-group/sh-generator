@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@sh/ui-core/utils/request';
 
 // 数据源-新增
 export const datasourceCreate = (params) => {

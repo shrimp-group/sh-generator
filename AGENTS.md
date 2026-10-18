@@ -25,7 +25,7 @@ sh-generator/
 │       └── resources/config/application.yml
 ├── generator-client/              # Maven Mojo 插件模块
 │   └── src/main/java/com/wkclz/generator/client/
-├── generator-ui/                  # Vue 3 前端
+├── generator-ui/                  # Vue 3 前端（@sh/ui-core 子系统）
 ├── docs/                          # 项目文档（规范/活文档/Stories/技术债务）
 ├── .trae/                         # Trae 配置（skills/mcp.json/.ignore）
 ├── changes/                       # 变更记录
@@ -45,7 +45,7 @@ sh-generator/
 - generator-server：核心业务模块（REST 接口、Service、Mapper、Entity/DTO/VO）
 - generator-server-starter：Spring Boot 启动模块（主类、配置）
 - generator-client：Maven Mojo 插件模块（命令行代码生成）
-- generator-ui：Vue 3 前端（Vite + Element Plus + Pinia）
+- generator-ui：Vue 3 前端（@sh/ui-core 子系统：登录委托门户、远端菜单，业务层仅 api + views）
 
 ## 代码规范
 详见 [docs/coding-standards/java.md](docs/coding-standards/java.md)
